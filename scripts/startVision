@@ -1,0 +1,4 @@
+cd ~/workspace/Hydrocamel/scripts
+gnome-terminal -x sh -c "roslaunch start.launch"
+cd ~/workspace/Hydrocamel/VisionApplication/Debug/
+./VisionApplication

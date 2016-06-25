@@ -1,0 +1,8 @@
+<launch>
+<arg name="BAG_FILE"/>
+<arg name="CHANNEL"/>
+  <node pkg="rosbag" type="play" name="rosbag" args="$(arg BAG_FILE)"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="$(arg CHANNEL)"/>
+  </node>
+</launch>

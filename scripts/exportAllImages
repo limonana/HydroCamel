@@ -1,0 +1,22 @@
+DATE=`date +%d-%m-%y_%H:%M`
+mkdir $DATE
+cd $DATE
+mkdir left
+mkdir right
+mkdir bottom
+mkdir DrawFront
+mkdir DrawBottom
+cd ..
+#BAG_FILE=/home/shani/bagfiles/test.bag
+#get path from user
+BAG_FILE=$1
+roslaunch exportChannel.launch BAG_FILE:=$BAG_FILE CHANNEL:='/vision/camera/left'
+mv ~/.ros/*.jpg $DATE/left
+roslaunch exportChannel.launch BAG_FILE:=$BAG_FILE CHANNEL:='/vision/camera/right'
+mv ~/.ros/*.jpg $DATE/right
+roslaunch exportChannel.launch BAG_FILE:=$BAG_FILE CHANNEL:='/vision/camera/bottom'
+mv ~/.ros/*.jpg $DATE/bottom
+roslaunch exportChannel.launch BAG_FILE:=$BAG_FILE CHANNEL:='/vision/answer/bottom'
+mv ~/.ros/*.jpg $DATE/DrawBottom
+roslaunch exportChannel.launch BAG_FILE:=$BAG_FILE CHANNEL:='/vision/answer/left'
+mv ~/.ros/*.jpg $DATE/DrawFront

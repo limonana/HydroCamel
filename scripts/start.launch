@@ -1,0 +1,8 @@
+<launch>
+  <node name="view_front" pkg="image_view" type="image_view" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/vision/answer/left"/>
+  </node>
+  <node name="view_bottom" pkg="image_view" type="image_view" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/vision/answer/bottom"/>
+  </node>  
+</launch>
